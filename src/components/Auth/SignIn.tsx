@@ -42,22 +42,6 @@ const SignIn = () => {
     if (status === 400) {
       Error("Giriş Bilgileri Hatalı");
     }
-    const getUser = async () => {
-      const agent = new https.Agent({
-        rejectUnauthorized: false,
-      });
-      const instance = axios.create({
-        httpsAgent: new https.Agent({
-          rejectUnauthorized: false,
-        }),
-      });
-      instance
-        .get("https://31.169.69.116:5001/api/Account/Test")
-        .then((data) => console.log(data))
-        .catch((err) => console.log(err));
-    };
-
-    getUser();
   }, [status]);
   const { user } = useAuth();
   return (
