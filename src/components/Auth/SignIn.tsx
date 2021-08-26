@@ -45,7 +45,8 @@ const SignIn = () => {
     const getUser = async () => {
       await axios({
         method: "post",
-        url: "http://31.169.69.116:5001/api/Account/Login",
+        baseURL: "http://31.169.69.116:5001/api",
+        url: "/Account/Login",
         data: { userName: "admin", password: "password" },
       })
         .then((data) => console.log(data))
