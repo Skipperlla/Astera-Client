@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     dispatch(BekleyenCagrilar());
   }, []);
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider attribute="class" defaultTheme="dark">
       <Provider store={store}>
         <AuthProvider token={token}>
           <Layout token={token}>

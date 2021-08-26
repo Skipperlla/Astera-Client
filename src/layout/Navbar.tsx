@@ -11,6 +11,7 @@ const Navbar = ({ openSideBar }: ISideBar) => {
     Cookies.remove("token");
     window.location.replace("/");
   };
+  console.log(theme);
   return (
     <header className="z-10 py-4 bg-white shadow-md dark:bg-gray-900 ">
       <Menu
