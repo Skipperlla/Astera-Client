@@ -9,6 +9,7 @@ import { ITable } from "types/types";
 import CardItem from "../../config/CardItem.json";
 import DashboardCard from "@components/DashboardCard";
 import { useAuth } from "hooks/UserContext";
+import { useSelector } from "react-redux";
 const Main = ({ headers, choice, title }: ITable) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [isOpenTable, setisOpenTable] = useState<boolean>(false);
@@ -19,6 +20,7 @@ const Main = ({ headers, choice, title }: ITable) => {
     setisOpenTable(true);
   }
   const { token } = useAuth();
+  const { data } = useSelector((state: any) => state.user);
   return (
     <>
       {token ? (
@@ -57,17 +59,13 @@ const Main = ({ headers, choice, title }: ITable) => {
             <>{isOpenTable && <Table headers={headers} />}</>
           ) : (
             <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-              {CardItem.Items.map((data, index) => {
-                return (
-                  <DashboardCard
-                    key={index}
-                    title={data.title}
-                    svgTitle={data.svgTitle}
-                    BGcolor={data.BGcolor}
-                    Textcolor={data.Textcolor}
-                  />
-                );
-              })}
+              <DashboardCard
+                title="Bekleyen Çağrılar"
+                svgTitle="chart-line"
+                BGcolor="dark:bg-blue-500 bg-blue-100 "
+                Textcolor="dark:text-blue-100 text-blue-500 "
+                data={data.bekleyen}
+              />
             </div>
           )}
         </>

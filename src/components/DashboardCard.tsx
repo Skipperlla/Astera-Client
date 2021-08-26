@@ -4,12 +4,15 @@ import { IDashboardCard } from "types/types";
 import { motion } from "framer-motion";
 
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { useSelector } from "react-redux";
 const DashboardCard = ({
   title,
   svgTitle,
   BGcolor,
   Textcolor,
+  data,
 }: IDashboardCard) => {
+  console.log(data);
   return (
     <motion.div
       whileHover={{ translateY: "-8px" }}
@@ -28,7 +31,7 @@ const DashboardCard = ({
           {title}
         </p>
         <p className="text-lg font-semibold text-gray-700 dark:text-gray-200">
-          100
+          {data}
         </p>
       </div>
     </motion.div>
