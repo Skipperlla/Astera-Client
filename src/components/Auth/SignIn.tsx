@@ -48,6 +48,9 @@ const SignIn = () => {
         baseURL: "http://31.169.69.116:5001/api",
         url: "/Account/Login",
         data: { userName: "admin", password: "password" },
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
       })
         .then((data) => console.log(data))
         .catch((err) => console.log(err));
