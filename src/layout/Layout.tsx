@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 
-const Layout = ({ children, token }: IProps) => {
+const Layout = ({ children, token, adi, soyadi }: IProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   function openSideBar() {
@@ -20,7 +20,7 @@ const Layout = ({ children, token }: IProps) => {
           <Sidebar isSidebarOpen={isSidebarOpen} openSideBar={openSideBar} />
 
           <div className="flex flex-col flex-1 w-full">
-            <Navbar openSideBar={openSideBar} />
+            <Navbar openSideBar={openSideBar} adi={adi} soyadi={soyadi} />
             <main className="h-full overflow-y-auto flex flex-col justify-between items-center">
               <div className=" px-2 sm:px-6 w-full 	sm:max-w-screen	mb-4">
                 {children}

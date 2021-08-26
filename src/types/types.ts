@@ -3,7 +3,7 @@ export interface IDashboardCard {
   svgTitle: string;
   BGcolor: string;
   Textcolor: string;
-  data: number | string;
+  data: number | string | undefined;
 }
 
 export interface ISideBar {

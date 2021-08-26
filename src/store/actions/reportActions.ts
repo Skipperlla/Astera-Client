@@ -1,57 +1,68 @@
-import { LoginForm, User, UserDispatch } from "../../types/user";
-import Cookies from "js-cookie";
+import { IReports, UserDispatch } from "../../types/report";
 import api from "@lib/api";
 export const BekleyenCagrilar = () => async (dispatch: UserDispatch) => {
-  dispatch({ type: "LOGIN_START" });
+  dispatch({ type: "BEKLEYEN_CAGRI_START" });
   try {
-    const response = await api().post<User>("/Report/BekleyenCagrilar", {
+    const response = await api().post<IReports>("/Report/BekleyenCagrilar", {
       queue: "string",
     });
-    dispatch({ type: "LOGIN_SUCCESS", payload: response.data?.data });
-  } catch {
-    dispatch({ type: "LOGIN_ERROR" });
+
+    dispatch({
+      type: "BEKLEYEN_CAGRI_SUCCESS",
+      payload: response.data?.data,
+    });
+  } catch (err) {
+    dispatch({ type: "BEKLEYEN_CAGRI_ERROR", payload: err.response });
   }
 };
 
 export const KacanCagrilar = () => async (dispatch: UserDispatch) => {
-  dispatch({ type: "LOGIN_START" });
+  dispatch({ type: "KACAN_CAGRI_START" });
   try {
-    const response = await api().post<User>("/Report/KacanCagrilar", {
+    const response = await api().post<IReports>("/Report/KacanCagrilar", {
       agentId: "string",
       startDate: "2021-08-25T17:10:17.393Z",
       endDate: "2021-08-25T17:10:17.393Z",
       queu: "string",
     });
-    dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
-  } catch {
-    dispatch({ type: "LOGIN_ERROR" });
+    dispatch({
+      type: "KACAN_CAGRI_SUCCESS",
+      payload: response.data?.data,
+    });
+  } catch (err) {
+    dispatch({ type: "KACAN_CAGRI_ERROR", payload: err.response });
   }
 };
 export const CevaplananCagrilar = () => async (dispatch: UserDispatch) => {
-  dispatch({ type: "LOGIN_START" });
+  dispatch({ type: "CEVAPLANAN_CAGRI_START" });
   try {
-    const response = await api().post<User>("​/Report​/CevaplananCagrilar", {
+    const response = await api().post<IReports>("Report/CevaplananCagrilar", {
       agentId: "string",
-      startDate: "2021-08-25T17:10:57.284Z",
-      endDate: "2021-08-25T17:10:57.284Z",
+      startDate: "2021-08-25T17:10:17.393Z",
+      endDate: "2021-08-25T17:10:17.393Z",
       queu: "string",
     });
-    dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
-  } catch {
-    dispatch({ type: "LOGIN_ERROR" });
+    dispatch({
+      type: "CEVAPLANAN_CAGRI_SUCCESS",
+      payload: response.data?.data,
+    });
+  } catch (err) {
+    dispatch({ type: "CEVAPLANAN_CAGRI_ERROR", payload: err.response });
   }
 };
 export const ToplamGelenCagrilar = () => async (dispatch: UserDispatch) => {
-  dispatch({ type: "LOGIN_START" });
   try {
-    const response = await api().post<User>("/Report/ToplamGelenCagrilar", {
+    const response = await api().post<IReports>("Report/ToplamGelenCagrilar", {
       agentId: "string",
-      startDate: "2021-08-25T17:11:22.394Z",
-      endDate: "2021-08-25T17:11:22.394Z",
+      startDate: "2021-08-25T17:10:17.393Z",
+      endDate: "2021-08-25T17:10:17.393Z",
       queu: "string",
     });
-    dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
-  } catch {
-    dispatch({ type: "LOGIN_ERROR" });
+    dispatch({
+      type: "TOPLAM_GELEN_CAGRI_SUCCESS",
+      payload: response.data?.data,
+    });
+  } catch (err) {
+    dispatch({ type: "TOPLAM_GELEN_CAGRI_ERROR", payload: err.response });
   }
 };

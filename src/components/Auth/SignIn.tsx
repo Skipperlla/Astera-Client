@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "store/actions/userActions";
+import { Login } from "store/actions/userActions";
 import { LoginForm } from "types/user";
 import { useAuth } from "hooks/UserContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -32,7 +32,7 @@ const SignIn = () => {
       Error("Bilgiler Eksik");
     } else {
       setToastIsActive(false);
-      dispatch(login(credentials));
+      dispatch(Login(credentials));
     }
   };
   const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {

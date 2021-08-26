@@ -10,21 +10,36 @@ import { AuthProvider } from "hooks/UserContext";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import "react-toastify/dist/ReactToastify.css";
-import { BekleyenCagrilar } from "store/actions/reportActions";
+import {
+  BekleyenCagrilar,
+  CevaplananCagrilar,
+  KacanCagrilar,
+  ToplamGelenCagrilar,
+} from "store/actions/reportActions";
+import { Agents, Queues, Test, Whoami } from "store/actions/userActions";
 function MyApp({ Component, pageProps }: AppProps) {
   const [token, setToken] = useState<any>("");
-  const [authUser, setauthUser] = useState<string[]>([]);
+  const [authUser, setauthUser] = useState<any>([]);
   const dispatch = useDispatch();
   useEffect(() => {
     setToken(Cookies.get("token"));
     setauthUser(JSON.parse(localStorage.getItem("authUser") || "{}"));
-    dispatch(BekleyenCagrilar());
+    if (Cookies.get("token") !== undefined) {
+      dispatch(BekleyenCagrilar());
+      dispatch(KacanCagrilar());
+      dispatch(CevaplananCagrilar());
+      dispatch(Test());
+      dispatch(Whoami());
+      dispatch(Agents());
+      dispatch(Queues());
+      // dispatch(ToplamGelenCagrilar());
+    }
   }, []);
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
       <Provider store={store}>
         <AuthProvider token={token}>
-          <Layout token={token}>
+          <Layout token={token} adi={authUser?.adi} soyadi={authUser?.soyadi}>
             <Component {...pageProps} />
           </Layout>
         </AuthProvider>

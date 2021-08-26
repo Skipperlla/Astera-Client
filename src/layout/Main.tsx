@@ -10,6 +10,7 @@ import CardItem from "../../config/CardItem.json";
 import DashboardCard from "@components/DashboardCard";
 import { useAuth } from "hooks/UserContext";
 import { useSelector } from "react-redux";
+import { AppState } from "store";
 const Main = ({ headers, choice, title }: ITable) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [isOpenTable, setisOpenTable] = useState<boolean>(false);
@@ -20,7 +21,9 @@ const Main = ({ headers, choice, title }: ITable) => {
     setisOpenTable(true);
   }
   const { token } = useAuth();
-  const { data } = useSelector((state: any) => state.user);
+  const { BekleyenCagri, KacanCagri, CevaplananCagri } = useSelector(
+    (state: AppState) => state.reports
+  );
   return (
     <>
       {token ? (
@@ -64,8 +67,29 @@ const Main = ({ headers, choice, title }: ITable) => {
                 svgTitle="chart-line"
                 BGcolor="dark:bg-blue-500 bg-blue-100 "
                 Textcolor="dark:text-blue-100 text-blue-500 "
-                data={data.bekleyen}
-              />
+                data={BekleyenCagri.bekleyen}
+              />{" "}
+              <DashboardCard
+                title="Kaçan Çağrılar"
+                svgTitle="times"
+                BGcolor="dark:bg-green-500 bg-green-100"
+                Textcolor="dark:text-green-100 text-green-500"
+                data={KacanCagri.kacan}
+              />{" "}
+              <DashboardCard
+                title="Cevaplanan Çağrılar"
+                svgTitle="user-plus"
+                BGcolor="dark:bg-indigo-500 bg-indigo-100"
+                Textcolor="dark:text-indigo-100 text-indigo-500"
+                data={CevaplananCagri.kacan}
+              />{" "}
+              {/* <DashboardCard
+                title="Toplam Gelen Çağrı"
+                svgTitle="chart-line"
+                BGcolor="dark:bg-purple-500 bg-purple-100"
+                Textcolor="dark:text-purple-100 text-purple-500"
+                data={BekleyenCagri.bekleyen}
+              /> */}
             </div>
           )}
         </>

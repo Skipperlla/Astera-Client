@@ -9,9 +9,13 @@ export interface IAccordionHeader {
 export interface IProps {
   children: ReactNode;
   token?: string;
+  adi?: string;
+  soyadi?: string;
 }
 export interface ISideBar {
   isSidebarOpen?: boolean;
+  adi?: string;
+  soyadi?: string;
   openSideBar: () => void;
 }
 export interface IToast {

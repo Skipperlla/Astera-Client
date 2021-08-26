@@ -4,19 +4,20 @@ import { Fragment } from "react";
 import { useTheme } from "next-themes";
 import { ISideBar } from "types/events";
 import Cookies from "js-cookie";
-const Navbar = ({ openSideBar }: ISideBar) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+const Navbar = ({ openSideBar, adi, soyadi }: ISideBar) => {
   const { theme, setTheme } = useTheme();
   const logout = () => {
     localStorage.removeItem("authUser");
     Cookies.remove("token");
     window.location.replace("/");
   };
-  console.log(theme);
+
   return (
     <header className="z-10 py-4 bg-white shadow-md dark:bg-gray-900 ">
       <Menu
         as="div"
-        className={`container flex items-center justify-between md:justify-end h-full px-6 mx-auto text-purple-600 transition-opacity`}
+        className={`container flex items-center justify-between md:justify-end h-full  mx-auto text-purple-600 transition-opacity`}
       >
         <button
           className="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple "
@@ -79,7 +80,7 @@ const Navbar = ({ openSideBar }: ISideBar) => {
           )}
 
           <li className="relative">
-            <Menu.Button className="align-middle rounded-full focus:shadow-outline-purple focus:outline-none">
+            <Menu.Button className="align-middle rounded-full focus:shadow-outline-purple focus:outline-none flex items-center justify-center">
               <motion.img
                 src="https://upload.wikimedia.org/wikipedia/en/d/d0/Dogecoin_Logo.png"
                 className="object-cover w-8 h-8 rounded-full"
@@ -98,6 +99,18 @@ const Navbar = ({ openSideBar }: ISideBar) => {
                 as="ul"
                 className="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-transparent dark:text-gray-300 dark:bg-gray-900"
               >
+                <li className="flex">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <div className="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                        <FontAwesomeIcon icon="user" className="w-4 h-4 mr-3" />
+                        <span>
+                          {adi} &nbsp; {soyadi}
+                        </span>
+                      </div>
+                    )}
+                  </Menu.Item>
+                </li>{" "}
                 <li className="flex">
                   <Menu.Item>
                     {({ active }) => (

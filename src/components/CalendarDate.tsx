@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
 const CalendarDate: React.FC = () => {
   const [startDate, setStartDate] = useState<string>("");
-  console.log(startDate);
+
   return (
     <DatePicker
       selected={new Date()}

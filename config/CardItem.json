@@ -9,8 +9,8 @@
     {
       "title": "Kaçan Çağrılar",
       "svgTitle": "times",
-      "BGcolor": "dark:bg-green-500 bg-green-100 ",
-      "Textcolor": "dark:text-green-100 text-green-500 "
+      "BGcolor": "dark:bg-green-500 bg-green-100",
+      "Textcolor": "dark:text-green-100 text-green-500"
     },
     {
       "title": "Cevaplanan Çağrılar",
