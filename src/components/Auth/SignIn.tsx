@@ -49,19 +49,9 @@ const SignIn = () => {
         data: { userName: "admin", password: "password" },
       })
         .then((data) => console.log(data))
-        .catch((err) => console.log(err.response));
+        .catch((err) => console.log(err));
     };
     getUser();
-    const getUser2 = async () => {
-      await axios({
-        method: "post",
-        url: "https://31.169.69.116:5001/api/Account/Login",
-        data: { userName: "admin", password: "password" },
-      })
-        .then((data) => console.log(data))
-        .catch((err) => console.log(err.response));
-    };
-    getUser2();
   }, [status]);
   const { user } = useAuth();
   return (
@@ -70,7 +60,10 @@ const SignIn = () => {
         <>
           <Head>
             <title>Login</title>
-           
+            <meta
+              httpEquiv="Content-Security-Policy"
+              content="upgrade-insecure-requests"
+            />
           </Head>
           <div className="h-full  w-4/48 mx-auto overflow-hidden  rounded-lg shadow-xl bg-white dark:bg-gray-800">
             <div className="overflow-y-auto ">
