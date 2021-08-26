@@ -48,7 +48,6 @@ export const Whoami = () => async (dispatch: UserDispatch) => {
   dispatch({ type: "WHOAMI_START" });
   try {
     const response = await api().get<User>("/Account/Whoami");
-    console.log(response);
     dispatch({ type: "WHOAMI_SUCCESS", payload: response.data });
   } catch (err) {
     dispatch({ type: "WHOAMI_ERROR", payload: 400 });
