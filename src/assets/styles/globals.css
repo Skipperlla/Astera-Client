@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  line-height: 1.5;
+}
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  border: 0 solid #d5d6d7;
+}
+
+.dark .dark\:text-gray-900 {
+  --bg-opacity: 1;
+  background-color: #1a1c23;
+  background-color: rgba(26, 28, 35, var(--bg-opacity));
+}
+
+.dark .dark\:bg-gray-900 {
+  --bg-opacity: 1;
+  background-color: #1a1c23;
+  background-color: rgba(26, 28, 35, var(--bg-opacity));
+}
+
+.dark .dark\:bg-gray-800 {
+  --bg-opacity: 1;
+  background-color: #121317;
+  background-color: rgba(18, 19, 23, var(--bg-opacity));
+}
+
+.chartjs-render-monitor {
+  animation: chartjs-render-animation 1ms;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.trigger {
+  transition: height 200ms linear 0s;
+}
+.react-datepicker__triangle {
+  left: -12px !important;
+}
+
+/* Menu's */
+.form-select {
+  background-image: url(../../../public/Icons/menu.svg);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  border-color: #e2e8f0;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
+}
+.form-calendar {
+  background-image: url(../../../public/Icons/calendar.svg);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  border-color: #e2e8f0;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
+}
+.form-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  border-color: #e2e8f0;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
+}
+/* Menu's */

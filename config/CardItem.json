@@ -1,0 +1,94 @@
+{
+  "Items": [
+    {
+      "title": "Bekleyen Çağrılar",
+      "svgTitle": "chart-line",
+      "BGcolor": "dark:bg-blue-500 bg-blue-100 ",
+      "Textcolor": "dark:text-blue-100 text-blue-500 "
+    },
+    {
+      "title": "Kaçan Çağrılar",
+      "svgTitle": "times",
+      "BGcolor": "dark:bg-green-500 bg-green-100 ",
+      "Textcolor": "dark:text-green-100 text-green-500 "
+    },
+    {
+      "title": "Cevaplanan Çağrılar",
+      "svgTitle": "user-plus",
+      "BGcolor": "dark:bg-indigo-500 bg-indigo-100 ",
+      "Textcolor": "dark:text-indigo-100 text-indigo-500 "
+    },
+    {
+      "title": "Toplam Gelen Çağrı",
+      "svgTitle": "chart-line",
+      "BGcolor": "dark:bg-purple-500 bg-purple-100 ",
+      "Textcolor": "dark:text-purple-100 text-purple-500 "
+    },
+    {
+      "title": "Bekleme Süresi",
+      "svgTitle": "clock",
+      "BGcolor": "dark:bg-green-500 bg-green-100 ",
+      "Textcolor": "dark:text-green-100 text-green-500 "
+    },
+    {
+      "title": "Max Bekleme Süresi",
+      "svgTitle": "stopwatch",
+      "BGcolor": "dark:bg-green-500 bg-green-100 ",
+      "Textcolor": "dark:text-green-100 text-green-500 "
+    },
+    {
+      "title": "Toplam Görüşme Süresi",
+      "svgTitle": "tachometer-alt",
+      "BGcolor": "dark:bg-green-500 bg-green-100 ",
+      "Textcolor": "dark:text-green-100 text-green-500 "
+    },
+    {
+      "title": "Ortalama Görüşme Süresi",
+      "svgTitle": "paper-plane",
+      "BGcolor": "dark:bg-green-500 bg-green-100 ",
+      "Textcolor": "dark:text-green-100 text-green-500 "
+    },
+    {
+      "title": "Toplam Giden Çağrı",
+      "svgTitle": "paper-plane",
+      "BGcolor": "dark:bg-green-500 bg-green-100 ",
+      "Textcolor": "dark:text-green-100 text-green-500 "
+    },
+    {
+      "title": "Aktif Çağrı",
+      "svgTitle": "phone-alt",
+      "BGcolor": "dark:bg-green-500 bg-green-100 ",
+      "Textcolor": "dark:text-green-100 text-green-500 "
+    },
+    {
+      "title": "Toplam Müşteri Temsilcisi",
+      "svgTitle": "smile",
+      "BGcolor": "dark:bg-green-500 bg-green-100 ",
+      "Textcolor": "dark:text-green-100 text-green-500 "
+    },
+    {
+      "title": "Molada Müşteri Temsilcisi",
+      "svgTitle": "user-clock",
+      "BGcolor": "dark:bg-green-500 bg-green-100 ",
+      "Textcolor": "dark:text-green-100 text-green-500 "
+    },
+    {
+      "title": "Kullanılan Mola Süresi",
+      "svgTitle": "mug-hot",
+      "BGcolor": "dark:bg-green-500 bg-green-100 ",
+      "Textcolor": "dark:text-green-100 text-green-500 "
+    },
+    {
+      "title": "Kullanılan Mola Sayısı",
+      "svgTitle": "signal",
+      "BGcolor": "dark:bg-green-500 bg-green-100 ",
+      "Textcolor": "dark:text-green-100 text-green-500 "
+    },
+    {
+      "title": "Karşılama Oranı",
+      "svgTitle": "door-open",
+      "BGcolor": "dark:bg-green-500 bg-green-100 ",
+      "Textcolor": "dark:text-green-100 text-green-500 "
+    }
+  ]
+}

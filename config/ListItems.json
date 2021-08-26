@@ -1,0 +1,100 @@
+{
+    "Items": [
+        {
+            "title": "Ana Sayfa",
+            "target": "/",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Bekleyen Çağrılar",
+            "target": "/bekleyencagrilar",
+            "svg": "fas",
+            "svgTitle": "phone-volume"
+        },
+        {
+            "title": "Kaçan Çağrılar",
+            "target": "/kacancagrilar",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Cevaplanan Çağrılar",
+            "target": "/cevaplanancagrilar",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Toplam Gelen Çağrı",
+            "target": "/toplamgidencagri",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Bekleme Süresi",
+            "target": "/beklemesuresi",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Max Bekleme Süresi",
+            "target": "/maxbeklemesuresi",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Toplam Görüşme Adedi",
+            "target": "/toplamgorusmeadedi",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Toplam Görüşme Süresi",
+            "target": "/toplamgorusmesuresi",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Ortalama Görüşme Süresi",
+            "target": "/ortalamagorusmesuresi",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Aktif Çağrılar",
+            "target": "/aktifcagrilar",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Toplam Müşteri Temsilcisi",
+            "target": "/toplammusretitemsilcisi",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Moladaki Müşteri Temsilcisi",
+            "target": "/moladakimusretitemsilcisi",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Kullanılan Mola Adedi",
+            "target": "/kullanilanmolaadedi",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Kullanılan Mola Süresi",
+            "target": "/kullanilanmolasuresi",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        },
+        {
+            "title": "Çağrı Karşılama Oranı",
+            "target": "/cagrikarsilamaorani",
+            "svg": "fas",
+            "svgTitle": "chart-line"
+        }
+    ]
+}

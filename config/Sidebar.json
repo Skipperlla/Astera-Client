@@ -1,0 +1,64 @@
+{
+  "Items": [
+    {
+      "title": "Ana Sayfa",
+      "target": "/",
+      "svg": "tachometer-alt"
+    },
+    {
+      "title": "Agent Detay",
+      "target": "/agentdetay",
+      "svg": "list"
+    },
+    {
+      "title": "Agent Özet",
+      "target": "/agentozet",
+      "svg": "copy"
+    },
+    {
+      "title": "Agent Özel Özet",
+      "target": "/agentozelozet",
+      "svg": "copy"
+    },
+    {
+      "title": "Login/Logout",
+      "target": "/loginlogout",
+      "svg": "th"
+    },
+    {
+      "title": "Kuyruk Detay",
+      "target": "/kuyrukdetay",
+      "svg": "chart-pie"
+    },
+    {
+      "title": "Kuyruk Özet",
+      "target": "/kuyrukozet",
+      "svg": "laptop"
+    },
+    {
+      "title": "Kuyruk Analiz",
+      "target": "/kuyrukanaliz",
+      "svg": "edit"
+    },
+    {
+      "title": "Mola Özet",
+      "target": "/molaozet",
+      "svg": "calendar-alt"
+    },
+    {
+      "title": "Mola Detay",
+      "target": "/moladetay",
+      "svg": "reply"
+    },
+    {
+      "title": "NPS1",
+      "target": "/nps1",
+      "svg": "link"
+    },
+    {
+      "title": "NPS2",
+      "target": "/nps2",
+      "svg": "cart-arrow-down"
+    }
+  ]
+}
