@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import Toast from "@components/Toast";
 import axios from "axios";
 import Head from "next/head";
-
+import https from "https";
 const SignIn = () => {
   const { status } = useSelector((state: any) => state.user);
   const userNameRef = useRef<any>();
@@ -43,18 +43,20 @@ const SignIn = () => {
       Error("Giriş Bilgileri Hatalı");
     }
     const getUser = async () => {
-      await axios({
-        method: "post",
-        baseURL: "http://31.169.69.116:5001/api",
-        url: "/Account/Login",
-        data: { userName: "admin", password: "password" },
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
+      const agent = new https.Agent({
+        rejectUnauthorized: false,
+      });
+      const instance = axios.create({
+        httpsAgent: new https.Agent({
+          rejectUnauthorized: false,
+        }),
+      });
+      instance
+        .get("https://31.169.69.116:5001/api/Account/Test")
         .then((data) => console.log(data))
         .catch((err) => console.log(err));
     };
+
     getUser();
   }, [status]);
   const { user } = useAuth();
