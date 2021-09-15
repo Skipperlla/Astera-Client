@@ -83,13 +83,13 @@ const Main = ({ headers, choice, title }: ITable) => {
                 Textcolor="dark:text-indigo-100 text-indigo-500"
                 data={CevaplananCagri.kacan}
               />{" "}
-              {/* <DashboardCard
-                title="Toplam Gelen Çağrı"
+              <DashboardCard
+                title="Toplam Bekleme Süresi"
                 svgTitle="chart-line"
                 BGcolor="dark:bg-purple-500 bg-purple-100"
                 Textcolor="dark:text-purple-100 text-purple-500"
                 data={BekleyenCagri.bekleyen}
-              /> */}
+              />
             </div>
           )}
         </>

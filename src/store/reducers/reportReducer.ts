@@ -28,7 +28,7 @@ const reportReducer = (
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        error: "",
         status: 400,
       };
     case "KACAN_CAGRI_START":
@@ -44,7 +44,7 @@ const reportReducer = (
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        error: "",
         status: 400,
       };
     case "CEVAPLANAN_CAGRI_START":
@@ -60,7 +60,7 @@ const reportReducer = (
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        error: "",
         status: 400,
       };
 
@@ -75,9 +75,25 @@ const reportReducer = (
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        error: "",
         status: 400,
       };
+
+    case "TOPLAM__BEKLEME_SURESI_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        ToplamBeklemeSüresi: action.payload,
+        status: 200,
+      };
+    case "TOPLAM__BEKLEME_SURESI_ERROR":
+      return {
+        ...state,
+        loading: false,
+        error: "",
+        status: 400,
+      };
+
     default:
       return state;
   }

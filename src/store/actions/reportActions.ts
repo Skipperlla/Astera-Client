@@ -11,8 +11,8 @@ export const BekleyenCagrilar = () => async (dispatch: UserDispatch) => {
       type: "BEKLEYEN_CAGRI_SUCCESS",
       payload: response.data?.data,
     });
-  } catch (err) {
-    dispatch({ type: "BEKLEYEN_CAGRI_ERROR", payload: err.response });
+  } catch {
+    dispatch({ type: "BEKLEYEN_CAGRI_ERROR" });
   }
 };
 
@@ -29,8 +29,8 @@ export const KacanCagrilar = () => async (dispatch: UserDispatch) => {
       type: "KACAN_CAGRI_SUCCESS",
       payload: response.data?.data,
     });
-  } catch (err) {
-    dispatch({ type: "KACAN_CAGRI_ERROR", payload: err.response });
+  } catch {
+    dispatch({ type: "KACAN_CAGRI_ERROR" });
   }
 };
 export const CevaplananCagrilar = () => async (dispatch: UserDispatch) => {
@@ -46,8 +46,8 @@ export const CevaplananCagrilar = () => async (dispatch: UserDispatch) => {
       type: "CEVAPLANAN_CAGRI_SUCCESS",
       payload: response.data?.data,
     });
-  } catch (err) {
-    dispatch({ type: "CEVAPLANAN_CAGRI_ERROR", payload: err.response });
+  } catch {
+    dispatch({ type: "CEVAPLANAN_CAGRI_ERROR" });
   }
 };
 export const ToplamGelenCagrilar = () => async (dispatch: UserDispatch) => {
@@ -62,7 +62,20 @@ export const ToplamGelenCagrilar = () => async (dispatch: UserDispatch) => {
       type: "TOPLAM_GELEN_CAGRI_SUCCESS",
       payload: response.data?.data,
     });
-  } catch (err) {
-    dispatch({ type: "TOPLAM_GELEN_CAGRI_ERROR", payload: err.response });
+  } catch {
+    dispatch({ type: "TOPLAM_GELEN_CAGRI_ERROR" });
+  }
+};
+export const ToplamBeklemeSuresi = () => async (dispatch: UserDispatch) => {
+  try {
+    const response = await api().post<IReports>("Report/ToplamBeklemeSuresi", {
+      queue: "string",
+    });
+    dispatch({
+      type: "TOPLAM__BEKLEME_SURESI_SUCCESS",
+      payload: response.data?.data,
+    });
+  } catch {
+    dispatch({ type: "TOPLAM__BEKLEME_SURESI_ERROR" });
   }
 };

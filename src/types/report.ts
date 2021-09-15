@@ -4,6 +4,7 @@ export interface IReports {
   data: any;
   bekleyen?: number;
   kacan?: number;
+  count?: number;
 }
 
 export interface ReportState {
@@ -23,7 +24,6 @@ interface BEKLEYEN_CAGRI_SUCCESS {
 }
 
 interface BEKLEYEN_CAGRI_ERROR {
-  payload: any;
   type: "BEKLEYEN_CAGRI_ERROR";
 }
 
@@ -36,7 +36,6 @@ interface KACAN_CAGRI_SUCCESS {
 }
 
 interface KACAN_CAGRI_ERROR {
-  payload: any;
   type: "KACAN_CAGRI_ERROR";
 }
 
@@ -49,7 +48,6 @@ interface CEVAPLANAN_CAGRI_SUCCESS {
 }
 
 interface CEVAPLANAN_CAGRI_ERROR {
-  payload: any;
   type: "CEVAPLANAN_CAGRI_ERROR";
 }
 
@@ -59,8 +57,16 @@ interface TOPLAM_GELEN_CAGRI_SUCCESS {
 }
 
 interface TOPLAM_GELEN_CAGRI_ERROR {
-  payload: any;
   type: "TOPLAM_GELEN_CAGRI_ERROR";
+}
+
+interface TOPLAM__BEKLEME_SURESI_SUCCESS {
+  type: "TOPLAM__BEKLEME_SURESI_SUCCESS";
+  payload: IReports;
+}
+
+interface TOPLAM__BEKLEME_SURESI_ERROR {
+  type: "TOPLAM__BEKLEME_SURESI_ERROR";
 }
 
 export type ReportsAction =
@@ -74,6 +80,8 @@ export type ReportsAction =
   | KACAN_CAGRI_SUCCESS
   | KACAN_CAGRI_ERROR
   | TOPLAM_GELEN_CAGRI_SUCCESS
-  | TOPLAM_GELEN_CAGRI_ERROR;
+  | TOPLAM_GELEN_CAGRI_ERROR
+  | TOPLAM__BEKLEME_SURESI_SUCCESS
+  | TOPLAM__BEKLEME_SURESI_ERROR;
 
 export type UserDispatch = ThunkDispatch<ReportState, void, ReportsAction>;

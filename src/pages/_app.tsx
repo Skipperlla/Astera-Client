@@ -14,6 +14,7 @@ import {
   BekleyenCagrilar,
   CevaplananCagrilar,
   KacanCagrilar,
+  ToplamBeklemeSuresi,
   ToplamGelenCagrilar,
 } from "store/actions/reportActions";
 import { Agents, Queues, Test, Whoami } from "store/actions/userActions";
@@ -32,6 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       dispatch(Whoami());
       dispatch(Agents());
       dispatch(Queues());
+      dispatch(ToplamBeklemeSuresi());
       // dispatch(ToplamGelenCagrilar());
     }
   }, []);
