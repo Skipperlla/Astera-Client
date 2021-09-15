@@ -8,7 +8,7 @@ export const Login =
     try {
       const response = await api().post<User>("/Account/Login", credentials);
       dispatch({ type: "LOGIN_SUCCESS", payload: response.data.data });
-      Cookies.set("token", response.data?.data.token, { expires: 7 });
+      Cookies.set("token", response.data?.data.token, { expires: 1 });
       localStorage.setItem("authUser", JSON.stringify(response.data.data));
       window.location.reload();
     } catch (err) {
