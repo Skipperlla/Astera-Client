@@ -1,12 +1,13 @@
+import { useAuth } from "hooks/UserContext";
 import React, { useState } from "react";
 import { IProps } from "types/events";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 
-const Layout = ({ children, token, adi, soyadi }: IProps) => {
+const Layout = ({ children }: IProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+  const { token } = useAuth();
   function openSideBar() {
     setIsSidebarOpen(!isSidebarOpen);
   }
@@ -20,7 +21,7 @@ const Layout = ({ children, token, adi, soyadi }: IProps) => {
           <Sidebar isSidebarOpen={isSidebarOpen} openSideBar={openSideBar} />
 
           <div className="flex flex-col flex-1 w-full">
-            <Navbar openSideBar={openSideBar} adi={adi} soyadi={soyadi} />
+            <Navbar openSideBar={openSideBar} />
             <main className="h-full overflow-y-auto flex flex-col justify-between items-center">
               <div className=" px-2 sm:px-6 w-full 	sm:max-w-screen	mb-4">
                 {children}

@@ -16,4 +16,6 @@ export interface ITable {
   choice?: "table" | "card";
   title?: string;
   token?: string;
+  items?: any;
+  elementItems?: JSX.Element | undefined;
 }

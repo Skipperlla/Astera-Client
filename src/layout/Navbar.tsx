@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import { ISideBar } from "types/events";
 import Cookies from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const Navbar = ({ openSideBar, adi, soyadi }: ISideBar) => {
+const Navbar = ({ openSideBar }: ISideBar) => {
   const { theme, setTheme } = useTheme();
   const logout = () => {
     localStorage.removeItem("authUser");
@@ -105,7 +105,7 @@ const Navbar = ({ openSideBar, adi, soyadi }: ISideBar) => {
                       <div className="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
                         <FontAwesomeIcon icon="user" className="w-4 h-4 mr-3" />
                         <span>
-                          {adi} &nbsp; {soyadi}
+                          {"adi"} &nbsp; {"soyadi"}
                         </span>
                       </div>
                     )}

@@ -11,19 +11,23 @@ import DashboardCard from "@components/DashboardCard";
 import { useAuth } from "hooks/UserContext";
 import { useSelector } from "react-redux";
 import { AppState } from "store";
-const Main = ({ headers, choice, title }: ITable) => {
+const Main = ({ headers, choice, title, elementItems }: ITable) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [isOpenTable, setisOpenTable] = useState<boolean>(false);
   function handleChange() {
     setIsOpen(!isOpen);
   }
-  function openTable() {
-    setisOpenTable(true);
-  }
+
   const { token } = useAuth();
-  const { BekleyenCagri, KacanCagri, CevaplananCagri } = useSelector(
-    (state: AppState) => state.reports
-  );
+  const {
+    BekleyenCagri,
+    KacanCagri,
+    CevaplananCagri,
+    ToplamGidenCagri,
+    AktifCagrilar,
+    ToplamBeklemeSüresi,
+    MaxBeklemeSuresi,
+  } = useSelector((state: AppState) => state.reports);
   return (
     <>
       {token ? (
@@ -43,15 +47,18 @@ const Main = ({ headers, choice, title }: ITable) => {
                 <div className="grid grid-cols-1 xl:grid-cols-5 gap-4 mb-4">
                   <CalendarDate />
                   <CalendarDate />
-                  <Input />
+                  {elementItems.map((items, index) => {
+                    return items;
+                  })}
+                  <Button setisOpenTable={setisOpenTable} />
                 </div>
-                <div className="grid grid-cols-1 xl:grid-cols-5 gap-4">
+                {/* <div className="grid grid-cols-1 xl:grid-cols-5 gap-4">
                   <Menu />
                   <Menu />
                   <Menu />
-                  <Menu />
+
                   <Button openTable={openTable} />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -67,28 +74,70 @@ const Main = ({ headers, choice, title }: ITable) => {
                 svgTitle="chart-line"
                 BGcolor="dark:bg-blue-500 bg-blue-100 "
                 Textcolor="dark:text-blue-100 text-blue-500 "
-                data={BekleyenCagri.bekleyen}
+                data={BekleyenCagri?.bekleyen}
               />{" "}
               <DashboardCard
                 title="Kaçan Çağrılar"
                 svgTitle="times"
                 BGcolor="dark:bg-green-500 bg-green-100"
                 Textcolor="dark:text-green-100 text-green-500"
-                data={KacanCagri.kacan}
+                data={KacanCagri?.kacan}
               />{" "}
               <DashboardCard
                 title="Cevaplanan Çağrılar"
                 svgTitle="user-plus"
                 BGcolor="dark:bg-indigo-500 bg-indigo-100"
                 Textcolor="dark:text-indigo-100 text-indigo-500"
-                data={CevaplananCagri.kacan}
+                data={CevaplananCagri?.kacan}
               />{" "}
               <DashboardCard
                 title="Toplam Bekleme Süresi"
                 svgTitle="chart-line"
                 BGcolor="dark:bg-purple-500 bg-purple-100"
                 Textcolor="dark:text-purple-100 text-purple-500"
-                data={BekleyenCagri.bekleyen}
+                data={ToplamGidenCagri?.adet}
+              />
+              <DashboardCard
+                title="Max Bekleme Süresi"
+                svgTitle="stopwatch"
+                BGcolor="dark:bg-green-500 bg-green-100"
+                Textcolor="dark:text-green-100 text-green-500"
+                data={MaxBeklemeSuresi?.beklemeSuresi}
+              />
+              <DashboardCard
+                title="Toplam Görüşme Süresi"
+                svgTitle="tachometer-alt"
+                BGcolor="dark:bg-green-500 bg-green-100"
+                Textcolor="dark:text-green-100 text-green-500"
+                data={ToplamBeklemeSüresi?.beklemeSuresi}
+              />{" "}
+              <DashboardCard
+                title="Ortalama Görüşme Süresi"
+                svgTitle="paper-plane"
+                BGcolor="dark:bg-green-500 bg-green-100"
+                Textcolor="dark:text-green-100 text-green-500"
+                data={BekleyenCagri?.bekleyen}
+              />{" "}
+              <DashboardCard
+                title="Toplam Giden Çağrı"
+                svgTitle="paper-plane"
+                BGcolor="dark:bg-green-500 bg-green-100"
+                Textcolor="dark:text-green-100 text-green-500"
+                data={ToplamGidenCagri?.adet}
+              />{" "}
+              <DashboardCard
+                title="Aktif Çağrı"
+                svgTitle="phone-alt"
+                BGcolor="dark:bg-green-500 bg-green-100"
+                Textcolor="dark:text-green-100 text-green-500"
+                data={AktifCagrilar?.adet}
+              />{" "}
+              <DashboardCard
+                title="Toplam Müşteri Temsilcisi"
+                svgTitle="smile"
+                BGcolor="dark:bg-green-500 bg-green-100"
+                Textcolor="dark:text-green-100 text-green-500"
+                data={BekleyenCagri?.bekleyen}
               />
             </div>
           )}

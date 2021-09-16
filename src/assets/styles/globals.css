@@ -102,3 +102,11 @@ body {
   background-size: 1.5em 1.5em;
 }
 /* Menu's */
+
+@media (min-width: 768px) {
+  .react-datepicker__tab-loop {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

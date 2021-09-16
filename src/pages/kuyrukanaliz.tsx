@@ -5,7 +5,7 @@ import Main from "../layout/Main";
 const KuyrukAnaliz: React.FC = () => {
   return (
     <>
-      <Main
+      {/* <Main
         headers={[
           "Saat",
           "0-5",
@@ -30,7 +30,8 @@ const KuyrukAnaliz: React.FC = () => {
         ]}
         choice="table"
         title="Kuyruk Analiz"
-      />
+      /> */}
+    
     </>
   );
 };
