@@ -2,7 +2,7 @@ import { ThunkDispatch } from "redux-thunk";
 
 import { Dispatch, ReactNode, SetStateAction } from "react";
 export interface IAuthContextType {
-  user: string | null;
+  user?: string | null;
   children?: ReactNode;
   token?: string;
   agentId?: string;
@@ -17,6 +17,7 @@ export interface IAuthContextType {
   setagent?: any;
   setqueue?: any;
   setendDate?: any;
+  authUser?: any;
 }
 export interface User {
   data: any;

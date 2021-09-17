@@ -1,13 +1,10 @@
-import React, { useRef, useState } from "react";
-import withAuth from "../../PrivateRoute/withAuth";
-import Main from "../layout/Main";
+import React, { useState } from "react";
 import SignIn from "@components/Auth/SignIn";
 import { useAuth } from "hooks/UserContext";
-import Menu from "@components/Menus/Menu";
 import { useReport } from "hooks/ReportContext";
 import AccordionHeader from "@components/AccordionHeader";
 import DatePicker from "react-datepicker";
-import { registerLocale, setDefaultLocale } from "react-datepicker";
+import { registerLocale } from "react-datepicker";
 import tr from "date-fns/locale/tr";
 registerLocale("tr", tr);
 import "react-datepicker/dist/react-datepicker.css";
@@ -29,6 +26,7 @@ import {
   ToplamMusretiTemsilcisı,
 } from "store/actions/reportActions";
 import DropdownItems from "../../config/DropdownItems.json";
+import withAuth from "../../PrivateRoute/withAuth";
 const Home: React.FC = () => {
   const { user } = useAuth();
 

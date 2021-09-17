@@ -1,15 +1,13 @@
 import AccordionHeader from "@components/AccordionHeader";
-import Menu from "@components/Menus/Menu";
-import Input from "@components/Tags/Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import withAuth from "../../PrivateRoute/withAuth";
 import DatePicker from "react-datepicker";
-import { registerLocale, setDefaultLocale } from "react-datepicker";
+import { registerLocale } from "react-datepicker";
 import tr from "date-fns/locale/tr";
 import { useReport } from "hooks/ReportContext";
 import DropdownItems from "../../config/DropdownItems.json";
-import Table from "@components/Tags/Table";
+import Table from "@components/Table";
 registerLocale("tr", tr);
 const AgentDetay: React.FC = () => {
   const { setstartDate, setendDate } = useReport();
@@ -33,10 +31,12 @@ const AgentDetay: React.FC = () => {
     "Yön",
     "Ses kaydı",
   ];
+  const durum = ["Durum", "CEVAPLANDI", "KAÇAN", "TRANSFER"];
+  const tümü = ["Tümü", "Gelen", "Giden"];
   return (
     <>
       <h2 className="my-6 px-4 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-        Dashboard
+        Agent Detay
       </h2>
       <div className={`w-full bg-white dark:bg-gray-900 my-4  `}>
         <div className={`trigger h-auto`}>
@@ -91,16 +91,34 @@ const AgentDetay: React.FC = () => {
                   );
                 })}
               </select>
-              <button className="block px-4 py-2 w-full mt-1 text-sm font-medium  leading-5  text-white transition-colors duration-150 bg-purple-600   active:bg-purple-600 hover:bg-purple-700  focus:shadow-outline-purple border border-transparent rounded focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" onClick={()=>setisOpenTable(true)}>
+              <select className="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+                {durum.map((items, index) => {
+                  return (
+                    <option key={index} value={items}>
+                      {items}
+                    </option>
+                  );
+                })}
+              </select>
+              <select className="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+                {tümü.map((items, index) => {
+                  return (
+                    <option key={index} value={items}>
+                      {items}
+                    </option>
+                  );
+                })}
+              </select>
+              <button
+                className="block px-4 py-2 w-full mt-1 text-sm font-medium  leading-5  text-white transition-colors duration-150 bg-purple-600   active:bg-purple-600 hover:bg-purple-700  focus:shadow-outline-purple border border-transparent rounded focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                onClick={() => setisOpenTable(true)}
+              >
                 <FontAwesomeIcon icon={["fas", "list"]} className="mr-2" />
                 Listele
               </button>
             </div>
-         
           </div>
-
         </div>
-       
       </div>
       {isOpenTable && <Table headers={headers} />}
     </>

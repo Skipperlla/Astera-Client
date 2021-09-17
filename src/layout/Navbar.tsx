@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { ISideBar } from "types/events";
 import Cookies from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useAuth } from "hooks/UserContext";
 const Navbar = ({ openSideBar }: ISideBar) => {
   const { theme, setTheme } = useTheme();
   const logout = () => {
@@ -12,7 +13,7 @@ const Navbar = ({ openSideBar }: ISideBar) => {
     Cookies.remove("token");
     window.location.replace("/");
   };
-
+  const { authUser } = useAuth();
   return (
     <header className="z-10 py-4 bg-white shadow-md dark:bg-gray-900 ">
       <Menu
@@ -105,7 +106,7 @@ const Navbar = ({ openSideBar }: ISideBar) => {
                       <div className="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
                         <FontAwesomeIcon icon="user" className="w-4 h-4 mr-3" />
                         <span>
-                          {"adi"} &nbsp; {"soyadi"}
+                          {authUser?.adi} &nbsp; {authUser?.soyadi}
                         </span>
                       </div>
                     )}
