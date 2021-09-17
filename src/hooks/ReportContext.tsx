@@ -1,20 +1,27 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import Cookies from "js-cookie";
 import { IAuthContextType } from "types/user";
 import { IProps } from "types/events";
 import { useDispatch } from "react-redux";
 import {
-  AktifCagrilar,
+  AktifCagrılar,
   BekleyenCagrilar,
   CevaplananCagrilar,
   KacanCagrilar,
-  MaxBeklemeSuresi,
+  MaxBeklemeSuresı,
   OrtalamaGorusmeSuresi,
   ToplamBeklemeSuresi,
   ToplamGelenCagrilar,
-  ToplamGidenCagri,
+  ToplamGidenCagrı,
   ToplamGorusmeSuresi,
-  ToplamMusretiTemsilcisi,
+  ToplamMusretiTemsilcisı,
 } from "store/actions/reportActions";
 
 const reportContextDefaultValues: IAuthContextType = {};
@@ -24,18 +31,13 @@ const ReportContext = createContext<IAuthContextType>(
 );
 
 export function ReportProvider({ children }: IProps) {
-  const [agentId, setagentId] = useState("");
-
+  const [agentId, setagentId] = useState("112");
   const [startDate, setstartDate] = useState(new Date().toISOString());
-  const [endDate, setendDate] = useState(new Date().toISOString());
-  const [queu, setqueu] = useState("443");
-  const [agent, setagent] = useState("");
-  const [queue, setqueue] = useState("8001");
+  const [endDate, setendDate] = useState<string>(new Date().toISOString());
+  const [queu, setqueu] = useState("8000");
+  const [agent, setagent] = useState("112");
+  const [queue, setqueue] = useState("8000");
 
-  // console.log("agentId", agentId);
-  // console.log("agent", agent);
-  // console.log("onlyDate", onlyDate);
-  // console.log("onlyQueue", onlyQueue);
   const dispatch = useDispatch();
   useEffect(() => {
     if (Cookies.get("token") !== undefined) {
@@ -44,13 +46,12 @@ export function ReportProvider({ children }: IProps) {
       dispatch(CevaplananCagrilar(agentId, startDate, endDate, queu));
       dispatch(ToplamGelenCagrilar(agentId, startDate, endDate, queu));
       dispatch(ToplamBeklemeSuresi(queue));
-
-      dispatch(MaxBeklemeSuresi(queue));
-      dispatch(ToplamGorusmeSuresi(agent, startDate, endDate, queue));
-      dispatch(OrtalamaGorusmeSuresi(agent, startDate, endDate, queue));
-      dispatch(ToplamGidenCagri(startDate, endDate));
-      dispatch(AktifCagrilar(queue));
-      dispatch(ToplamMusretiTemsilcisi(queue));
+      dispatch(MaxBeklemeSuresı(queue));
+      // dispatch(ToplamGorusmeSuresi(agent, startDate, endDate, queue));
+      // dispatch(OrtalamaGorusmeSuresi(agent, startDate, endDate, queue));
+      dispatch(ToplamGidenCagrı(startDate, endDate));
+      dispatch(AktifCagrılar(queue));
+      dispatch(ToplamMusretiTemsilcisı(queue));
     }
   }, []);
   return (
@@ -67,6 +68,8 @@ export function ReportProvider({ children }: IProps) {
           setagent,
           queue,
           setqueue,
+          setendDate,
+          endDate,
         }}
       >
         {children}

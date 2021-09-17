@@ -1,0 +1,23 @@
+{
+  "agentIdList": [
+    "Agent",
+    "112 Alper Yilmaz",
+    "113 Fahri Acar",
+    "114 Safak Turan",
+    "115 115",
+    "120 Serdar Ikikardesler",
+    "133 Tuncay Bilgin",
+    "433 433",
+    "444 Agent - Alper"
+  ],
+  "kuyruk": [
+    "Kuyruk",
+    "8000 Operator",
+    "8001 Teknik",
+    "8002 Muhasebe",
+    "8011 Teknik Mesaidisi",
+    "8012 Satis Mesaidisi",
+    "8013 TEST",
+    "8100 Call center"
+  ]
+}

@@ -1,31 +1,39 @@
 import { IReports, UserDispatch } from "../../types/report";
 import api from "@lib/api";
-export const BekleyenCagrilar = (queue) => async (dispatch: UserDispatch) => {
-  dispatch({ type: "BEKLEYEN_CAGRI_START" });
-  try {
-    const response = await api().post<IReports>("/Report/BekleyenCagrilar", 
-      {queue}
-    );
 
-    dispatch({
-      type: "BEKLEYEN_CAGRI_SUCCESS",
-      payload: response.data?.data,
-    });
-  } catch {
-    dispatch({ type: "BEKLEYEN_CAGRI_ERROR" });
-  }
-};
+export const BekleyenCagrilar =
+  (queue: string | undefined) => async (dispatch: UserDispatch) => {
+    dispatch({ type: "BEKLEYEN_CAGRI_START" });
+    try {
+      const response = await api().post<IReports>("/Report/BekleyenCagrilar", {
+        queue,
+      });
+
+      dispatch({
+        type: "BEKLEYEN_CAGRI_SUCCESS",
+        payload: response.data?.data,
+      });
+    } catch {
+      dispatch({ type: "BEKLEYEN_CAGRI_ERROR" });
+    }
+  };
 
 export const KacanCagrilar =
-  (agentId, startDate, endDate, queu) => async (dispatch: UserDispatch) => {
+  (
+    agentId: string | undefined,
+    startDate: string | undefined,
+    endDate: string | undefined,
+    queu: string | undefined
+  ) =>
+  async (dispatch: UserDispatch) => {
     dispatch({ type: "KACAN_CAGRI_START" });
     try {
-      const response = await api().post<IReports>("/Report/KacanCagrilar", 
-        {agentId,
+      const response = await api().post<IReports>("/Report/KacanCagrilar", {
+        agentId,
         startDate,
         endDate,
-        queu}
-      );
+        queu,
+      });
       dispatch({
         type: "KACAN_CAGRI_SUCCESS",
         payload: response.data?.data,
@@ -35,16 +43,21 @@ export const KacanCagrilar =
     }
   };
 export const CevaplananCagrilar =
-  (agentId, startDate, endDate, queu) => async (dispatch: UserDispatch) => {
+  (
+    agentId: string | undefined,
+    startDate: string | undefined,
+    endDate: string | undefined,
+    queu: string | undefined
+  ) =>
+  async (dispatch: UserDispatch) => {
     dispatch({ type: "CEVAPLANAN_CAGRI_START" });
     try {
-      const response = await api().post<IReports>(
-        "Report/CevaplananCagrilar",
-        {agentId,
+      const response = await api().post<IReports>("Report/CevaplananCagrilar", {
+        agentId,
         startDate,
         endDate,
-        queu}
-      );
+        queu,
+      });
       dispatch({
         type: "CEVAPLANAN_CAGRI_SUCCESS",
         payload: response.data?.data,
@@ -54,15 +67,18 @@ export const CevaplananCagrilar =
     }
   };
 export const ToplamGelenCagrilar =
-  (agentId, startDate, endDate, queu) => async (dispatch: UserDispatch) => {
+  (
+    agentId: string | undefined,
+    startDate: string | undefined,
+    endDate: string | undefined,
+    queu: string | undefined
+  ) =>
+  async (dispatch: UserDispatch) => {
     dispatch({ type: "TOPLAM_GELEN_CAGRI_START" });
     try {
       const response = await api().post<IReports>(
         "Report/ToplamGelenCagrilar",
-        {agentId,
-        startDate,
-        endDate,
-        queu}
+        { agentId, startDate, endDate, queu }
       );
       dispatch({
         type: "TOPLAM_GELEN_CAGRI_SUCCESS",
@@ -73,12 +89,12 @@ export const ToplamGelenCagrilar =
     }
   };
 export const ToplamBeklemeSuresi =
-  (queue) => async (dispatch: UserDispatch) => {
+  (queue: string | undefined) => async (dispatch: UserDispatch) => {
     dispatch({ type: "TOPLAM_BEKLEME_SURESI_START" });
     try {
       const response = await api().post<IReports>(
         "Report/ToplamBeklemeSuresi",
-        {queue}
+        { queue }
       );
 
       dispatch({
@@ -89,32 +105,35 @@ export const ToplamBeklemeSuresi =
       dispatch({ type: "TOPLAM_BEKLEME_SURESI_ERROR" });
     }
   };
-export const MaxBeklemeSuresi = (queue) => async (dispatch: UserDispatch) => {
-  dispatch({ type: "MAX_BEKLEME_SURESI_START" });
-  try {
-    const response = await api().post<IReports>(
-      "Report/MaxBeklemeSuresi",
-      {queue}
-    );
+export const MaxBeklemeSuresı =
+  (queue: string | undefined) => async (dispatch: UserDispatch) => {
+    dispatch({ type: "MAX_BEKLEME_SURESI_START" });
+    try {
+      const response = await api().post<IReports>("Report/MaxBeklemeSuresi", {
+        queue,
+      });
 
-    dispatch({
-      type: "MAX_BEKLEME_SURESI_SUCCESS",
-      payload: response.data?.data,
-    });
-  } catch {
-    dispatch({ type: "MAX_BEKLEME_SURESI_ERROR" });
-  }
-};
+      dispatch({
+        type: "MAX_BEKLEME_SURESI_SUCCESS",
+        payload: response.data?.data,
+      });
+    } catch {
+      dispatch({ type: "MAX_BEKLEME_SURESI_ERROR" });
+    }
+  };
 export const ToplamGorusmeSuresi =
-  (agent, startDate, endDate, queue) => async (dispatch: UserDispatch) => {
+  (
+    agent: string | undefined,
+    startDate: string | undefined,
+    endDate: string | undefined,
+    queue: string | undefined
+  ) =>
+  async (dispatch: UserDispatch) => {
     dispatch({ type: "TOPLAM_GORUSME_SURESI_START" });
     try {
       const response = await api().post<IReports>(
         "Report/ToplamGorusmeSuresi",
-        {agent,
-        startDate,
-        endDate,
-        queue}
+        { agent, startDate, endDate, queue }
       );
 
       dispatch({
@@ -126,15 +145,18 @@ export const ToplamGorusmeSuresi =
     }
   };
 export const OrtalamaGorusmeSuresi =
-  (agent, startDate, endDate, queue) => async (dispatch: UserDispatch) => {
+  (
+    agent: string | undefined,
+    startDate: string | undefined,
+    endDate: string | undefined,
+    queue: string | undefined
+  ) =>
+  async (dispatch: UserDispatch) => {
     dispatch({ type: "ORTALAMA_GORUSME_SURESI_START" });
     try {
       const response = await api().post<IReports>(
         "Report/OrtalamaGorusmeSuresi",
-        {agent,
-        startDate,
-        endDate,
-        queue}
+        { agent, startDate, endDate, queue }
       );
 
       dispatch({
@@ -145,15 +167,15 @@ export const OrtalamaGorusmeSuresi =
       dispatch({ type: "ORTALAMA_GORUSME_SURESI_ERROR" });
     }
   };
-export const ToplamGidenCagri =
-  (startDate, endDate) => async (dispatch: UserDispatch) => {
+export const ToplamGidenCagrı =
+  (startDate: string | undefined, endDate: string | undefined) =>
+  async (dispatch: UserDispatch) => {
     dispatch({ type: "TOPLAM_GIDEN_CAGRI_START" });
     try {
-      const response = await api().post<IReports>(
-        "Report/ToplamGidenCagri",
-        {startDate,
-        endDate}
-      );
+      const response = await api().post<IReports>("Report/ToplamGidenCagri", {
+        startDate,
+        endDate,
+      });
 
       dispatch({
         type: "TOPLAM_GIDEN_CAGRI_SUCCESS",
@@ -163,26 +185,29 @@ export const ToplamGidenCagri =
       dispatch({ type: "TOPLAM_GIDEN_CAGRI_ERROR" });
     }
   };
-export const AktifCagrilar = (queue) => async (dispatch: UserDispatch) => {
-  dispatch({ type: "AKTIF_CAGRILAR_START" });
-  try {
-    const response = await api().post<IReports>("Report/AktifCagrilar", {queue});
+export const AktifCagrılar =
+  (queue: string | undefined) => async (dispatch: UserDispatch) => {
+    dispatch({ type: "AKTIF_CAGRILAR_START" });
+    try {
+      const response = await api().post<IReports>("Report/AktifCagrilar", {
+        queue,
+      });
 
-    dispatch({
-      type: "AKTIF_CAGRILAR_SUCCESS",
-      payload: response.data?.data,
-    });
-  } catch {
-    dispatch({ type: "AKTIF_CAGRILAR_ERROR" });
-  }
-};
-export const ToplamMusretiTemsilcisi =
-  (queue) => async (dispatch: UserDispatch) => {
+      dispatch({
+        type: "AKTIF_CAGRILAR_SUCCESS",
+        payload: response.data?.data,
+      });
+    } catch {
+      dispatch({ type: "AKTIF_CAGRILAR_ERROR" });
+    }
+  };
+export const ToplamMusretiTemsilcisı =
+  (queue: string | undefined) => async (dispatch: UserDispatch) => {
     dispatch({ type: "TOPLAM_MUSRETI_TEMSILCISI_START" });
     try {
       const response = await api().post<IReports>(
-        "Report/ToplamMusretiTemsilcisi",
-        {queue}
+        "Report/ToplamMusteriTemsilcisi",
+        { queue }
       );
 
       dispatch({

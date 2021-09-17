@@ -17,6 +17,8 @@ export interface ReportState {
   AktifCagrilar: IReports;
   ToplamBeklemeSüresi: IReports;
   MaxBeklemeSuresi: IReports;
+  ToplamGelenCagri: IReports;
+  ToplamMusretiTemsilcisi: IReports;
   loading: boolean;
   error: string;
   status: null | number;

@@ -11,6 +11,7 @@ import DashboardCard from "@components/DashboardCard";
 import { useAuth } from "hooks/UserContext";
 import { useSelector } from "react-redux";
 import { AppState } from "store";
+import { useReport } from "hooks/ReportContext";
 const Main = ({ headers, choice, title, elementItems }: ITable) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [isOpenTable, setisOpenTable] = useState<boolean>(false);
@@ -28,6 +29,9 @@ const Main = ({ headers, choice, title, elementItems }: ITable) => {
     ToplamBeklemeSüresi,
     MaxBeklemeSuresi,
   } = useSelector((state: AppState) => state.reports);
+  const { setstartDate, setendDate, startDate, endDate } = useReport();
+  console.log("startDate", startDate);
+  console.log("endDate", endDate);
   return (
     <>
       {token ? (
@@ -45,11 +49,9 @@ const Main = ({ headers, choice, title, elementItems }: ITable) => {
                 } py-2 px-4   `}
               >
                 <div className="grid grid-cols-1 xl:grid-cols-5 gap-4 mb-4">
-                  <CalendarDate />
-                  <CalendarDate />
-                  {elementItems.map((items, index) => {
-                    return items;
-                  })}
+                  <CalendarDate setstartDate={setstartDate} />
+                  <CalendarDate setstartDate={setstartDate} />
+
                   <Button setisOpenTable={setisOpenTable} />
                 </div>
                 {/* <div className="grid grid-cols-1 xl:grid-cols-5 gap-4">
