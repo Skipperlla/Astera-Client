@@ -1,4 +1,4 @@
-import { IReports, UserDispatch } from "../../types/report";
+  import { IReports, UserDispatch } from "../../types/report";
 import api from "@lib/api";
 
 export const BekleyenCagrilar =
@@ -121,7 +121,7 @@ export const MaxBeklemeSuresı =
       dispatch({ type: "MAX_BEKLEME_SURESI_ERROR" });
     }
   };
-export const ToplamGorusmeSuresi =
+export const ToplamGorusmeSüresi =
   (
     agent: string | undefined,
     startDate: string | undefined,
@@ -144,7 +144,7 @@ export const ToplamGorusmeSuresi =
       dispatch({ type: "TOPLAM_GORUSME_SURESI_ERROR" });
     }
   };
-export const OrtalamaGorusmeSuresi =
+export const OrtalamaGorusmeSüresi =
   (
     agent: string | undefined,
     startDate: string | undefined,

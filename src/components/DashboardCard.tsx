@@ -12,6 +12,7 @@ const DashboardCard = ({
   Textcolor,
   data,
 }: IDashboardCard) => {
+  console.log(data)
   return (
     <motion.div
       whileHover={{ translateY: "-8px" }}

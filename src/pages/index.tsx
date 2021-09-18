@@ -18,11 +18,11 @@ import {
   CevaplananCagrilar,
   KacanCagrilar,
   MaxBeklemeSuresı,
-  OrtalamaGorusmeSuresi,
+  OrtalamaGorusmeSüresi,
   ToplamBeklemeSuresi,
   ToplamGelenCagrilar,
   ToplamGidenCagrı,
-  ToplamGorusmeSuresi,
+  ToplamGorusmeSüresi,
   ToplamMusretiTemsilcisı,
 } from "store/actions/reportActions";
 import DropdownItems from "../../config/DropdownItems.json";
@@ -53,11 +53,13 @@ const Home: React.FC = () => {
     BekleyenCagri,
     KacanCagri,
     CevaplananCagri,
-    ToplamGidenCagri,
-    AktifCagrilar,
+    ToplamGelenCagri,
     ToplamBeklemeSüresi,
     MaxBeklemeSuresi,
-    ToplamGelenCagri,
+    ToplamGorusmeSuresi,
+    OrtalamaGorusmeSuresi,
+    ToplamGidenCagri,
+    AktifCagrilar,
     ToplamMusretiTemsilcisi,
   } = useSelector((state: AppState) => state.reports);
   const dispatch = useDispatch();
@@ -66,10 +68,10 @@ const Home: React.FC = () => {
     dispatch(KacanCagrilar(agentId, startDate, endDate, queu));
     dispatch(CevaplananCagrilar(agentId, startDate, endDate, queu));
     dispatch(ToplamGelenCagrilar(agentId, startDate, endDate, queu));
-    // dispatch(ToplamBeklemeSuresi(queue));
-    // dispatch(MaxBeklemeSuresı(queue));
-    // dispatch(ToplamGorusmeSuresi(agent, startDate, endDate, queue));
-    // dispatch(OrtalamaGorusmeSuresi(agent, startDate, endDate, queue));
+    dispatch(ToplamBeklemeSuresi(queue));
+    dispatch(MaxBeklemeSuresı(queue));
+    dispatch(ToplamGorusmeSüresi(agent, startDate, endDate, queue));
+    dispatch(OrtalamaGorusmeSüresi(agent, startDate, endDate, queue));
     dispatch(ToplamGidenCagrı(startDate, endDate));
     dispatch(AktifCagrılar(queue));
     dispatch(ToplamMusretiTemsilcisı(queue));
@@ -172,81 +174,109 @@ const Home: React.FC = () => {
               <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
                 <DashboardCard
                   title="Bekleyen Çağrılar"
-                  svgTitle="chart-line"
-                  BGcolor="dark:bg-blue-500 bg-blue-100 "
-                  Textcolor="dark:text-blue-100 text-blue-500 "
+                  svgTitle="redo"
+                  BGcolor="dark:bg-red-500 bg-red-100 "
+                  Textcolor="dark:text-red-100 text-red-500 "
                   data={BekleyenCagri?.bekleyen}
                 />{" "}
                 <DashboardCard
                   title="Kaçan Çağrılar"
                   svgTitle="times"
-                  BGcolor="dark:bg-green-500 bg-green-100"
-                  Textcolor="dark:text-green-100 text-green-500"
+                  BGcolor="dark:bg-red-800 bg-red-100"
+                  Textcolor="dark:text-red-100 text-red-800"
                   data={KacanCagri?.kacan}
                 />{" "}
                 <DashboardCard
                   title="Cevaplanan Çağrılar"
                   svgTitle="user-plus"
-                  BGcolor="dark:bg-indigo-500 bg-indigo-100"
-                  Textcolor="dark:text-indigo-100 text-indigo-500"
+                  BGcolor="dark:bg-yellow-500 bg-yellow-100 "
+                  Textcolor="dark:text-yellow-100 text-yellow-500 "
                   data={CevaplananCagri?.kacan}
-                />
+                />{" "}
                 <DashboardCard
                   title="Toplam Gelen Çağrı"
-                  svgTitle="chart-line"
-                  BGcolor="dark:bg-purple-500 bg-purple-100"
-                  Textcolor="dark:text-purple-100 text-purple-500"
+                  svgTitle="chart-pie"
+                  BGcolor="dark:bg-yellow-800 bg-yellow-100 "
+                  Textcolor="dark:text-yellow-100 text-yellow-800 "
                   data={ToplamGelenCagri?.kacan}
-                />
+                />{" "}
                 <DashboardCard
-                  title="Toplam Görüşme Süresi"
-                  svgTitle="tachometer-alt"
-                  BGcolor="dark:bg-green-500 bg-green-100"
-                  Textcolor="dark:text-green-100 text-green-500"
+                  title="Bekleme Süresi"
+                  svgTitle="clock"
+                  BGcolor="dark:bg-blue-500 bg-blue-100 "
+                  Textcolor="dark:text-blue-100 text-blue-500 "
                   data={ToplamBeklemeSüresi?.beklemeSuresi}
                 />{" "}
                 <DashboardCard
                   title="Max Bekleme Süresi"
-                  svgTitle="stopwatch"
-                  BGcolor="dark:bg-green-500 bg-green-100"
-                  Textcolor="dark:text-green-100 text-green-500"
+                  svgTitle="hourglass-half"
+                  BGcolor="dark:bg-blue-800 bg-blue-100 "
+                  Textcolor="dark:text-blue-100 text-blue-800 "
                   data={MaxBeklemeSuresi?.beklemeSuresi}
-                />
-                {/* <DashboardCard
+                />{" "}
+                <DashboardCard
                   title="Toplam Görüşme Süresi"
                   svgTitle="stopwatch"
-                  BGcolor="dark:bg-green-500 bg-green-100"
-                  Textcolor="dark:text-green-100 text-green-500"
-                  data={MaxBeklemeSuresi?.beklemeSuresi}
-                /> */}
-                {/* <DashboardCard
+                  BGcolor="dark:bg-green-500 bg-green-100 "
+                  Textcolor="dark:text-green-100 text-green-500 "
+                  data={ToplamGorusmeSuresi?.beklemeSuresi}
+                />{" "}
+                <DashboardCard
                   title="Ortalama Görüşme Süresi"
-                  svgTitle="paper-plane"
-                  BGcolor="dark:bg-green-500 bg-green-100"
-                  Textcolor="dark:text-green-100 text-green-500"
-                  data={BekleyenCagri?.bekleyen}
-                />{" "} */}
+                  svgTitle="tachometer-alt"
+                  BGcolor="dark:bg-green-800 bg-green-100 "
+                  Textcolor="dark:text-green-100 text-green-800 "
+                  data={OrtalamaGorusmeSuresi?.beklemeSuresi}
+                />{" "}
                 <DashboardCard
                   title="Toplam Giden Çağrı"
                   svgTitle="paper-plane"
-                  BGcolor="dark:bg-green-500 bg-green-100"
-                  Textcolor="dark:text-green-100 text-green-500"
+                  BGcolor="dark:bg-purple-500 bg-purple-100 "
+                  Textcolor="dark:text-purple-100 text-purple-500 "
                   data={ToplamGidenCagri?.adet}
                 />{" "}
                 <DashboardCard
                   title="Aktif Çağrı"
                   svgTitle="phone-alt"
-                  BGcolor="dark:bg-green-500 bg-green-100"
-                  Textcolor="dark:text-green-100 text-green-500"
+                  BGcolor="dark:bg-purple-800 bg-purple-100 "
+                  Textcolor="dark:text-purple-100 text-purple-800 "
                   data={AktifCagrilar?.adet}
                 />{" "}
                 <DashboardCard
-                  title="Toplam Müşteri Temsilcisi"
+                  title="Toplam Müşt. Temsilcisi"
                   svgTitle="smile"
-                  BGcolor="dark:bg-green-500 bg-green-100"
-                  Textcolor="dark:text-green-100 text-green-500"
+                  BGcolor="dark:bg-indigo-500 bg-indigo-100 "
+                  Textcolor="dark:text-indigo-100 text-indigo-500 "
                   data={ToplamMusretiTemsilcisi?.adet}
+                />{" "}
+                {/* <DashboardCard
+                  title="Molada Müşt. Temsilcisi"
+                  svgTitle="user-clock"
+                  BGcolor="dark:bg-indigo-800 bg-indigo-100 "
+                  Textcolor="dark:text-indigo-100 text-indigo-800 "
+                  data={BekleyenCagri?.bekleyen}
+                />{" "}
+                <DashboardCard
+                  title="Kullanılan Mola Süresi"
+                  svgTitle="mug-hot"
+                  BGcolor="dark:bg-pink-500 bg-pink-100 "
+                  Textcolor="dark:text-pink-100 text-pink-500 "
+                  data={BekleyenCagri?.bekleyen}
                 />
+                <DashboardCard
+                  title="Kullanılan Mola Sayısı"
+                  svgTitle="signal"
+                  BGcolor="dark:bg-pink-800 bg-pink-100 "
+                  Textcolor="dark:text-pink-100 text-pink-800 "
+                  data={BekleyenCagri?.bekleyen}
+                />
+                <DashboardCard
+                  title="Karşılama Oranı"
+                  svgTitle="door-open"
+                  BGcolor="dark:bg-blue-500 bg-blue-100 "
+                  Textcolor="dark:text-blue-100 text-blue-500 "
+                  data={BekleyenCagri?.bekleyen}
+                /> */}
               </div>
             </>
           )}

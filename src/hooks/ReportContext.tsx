@@ -16,11 +16,11 @@ import {
   CevaplananCagrilar,
   KacanCagrilar,
   MaxBeklemeSuresı,
-  OrtalamaGorusmeSuresi,
+  OrtalamaGorusmeSüresi,
   ToplamBeklemeSuresi,
   ToplamGelenCagrilar,
   ToplamGidenCagrı,
-  ToplamGorusmeSuresi,
+  ToplamGorusmeSüresi,
   ToplamMusretiTemsilcisı,
 } from "store/actions/reportActions";
 
@@ -31,12 +31,12 @@ const ReportContext = createContext<IAuthContextType>(
 );
 
 export function ReportProvider({ children }: IProps) {
-  const [agentId, setagentId] = useState("112");
-  const [startDate, setstartDate] = useState(new Date().toISOString());
+  const [agentId, setagentId] = useState<string>("");
+  const [startDate, setstartDate] = useState<string>(new Date().toISOString());
   const [endDate, setendDate] = useState<string>(new Date().toISOString());
-  const [queu, setqueu] = useState("8000");
-  const [agent, setagent] = useState("112");
-  const [queue, setqueue] = useState("8000");
+  const [queu, setqueu] = useState<string>("");
+  const [agent, setagent] = useState<string>("");
+  const [queue, setqueue] = useState<string>("");
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -47,8 +47,8 @@ export function ReportProvider({ children }: IProps) {
       dispatch(ToplamGelenCagrilar(agentId, startDate, endDate, queu));
       dispatch(ToplamBeklemeSuresi(queue));
       dispatch(MaxBeklemeSuresı(queue));
-      // dispatch(ToplamGorusmeSuresi(agent, startDate, endDate, queue));
-      // dispatch(OrtalamaGorusmeSuresi(agent, startDate, endDate, queue));
+      dispatch(ToplamGorusmeSüresi(agent, startDate, endDate, queue));
+      dispatch(OrtalamaGorusmeSüresi(agent, startDate, endDate, queue));
       dispatch(ToplamGidenCagrı(startDate, endDate));
       dispatch(AktifCagrılar(queue));
       dispatch(ToplamMusretiTemsilcisı(queue));

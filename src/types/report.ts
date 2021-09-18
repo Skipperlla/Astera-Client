@@ -13,11 +13,13 @@ export interface ReportState {
   BekleyenCagri: IReports;
   KacanCagri: IReports;
   CevaplananCagri: IReports;
-  ToplamGidenCagri: IReports;
-  AktifCagrilar: IReports;
+  ToplamGelenCagri: IReports;
   ToplamBeklemeSüresi: IReports;
   MaxBeklemeSuresi: IReports;
-  ToplamGelenCagri: IReports;
+  ToplamGorusmeSuresi: IReports;
+  OrtalamaGorusmeSuresi: IReports;
+  ToplamGidenCagri: IReports;
+  AktifCagrilar: IReports;
   ToplamMusretiTemsilcisi: IReports;
   loading: boolean;
   error: string;
