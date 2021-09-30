@@ -110,6 +110,7 @@ const Home: React.FC = () => {
                           const ISOdate = date.toISOString();
                           setstartDate(ISOdate);
                           setStartDated(date);
+                          console.log(ISOdate);
                           // do stuff with ISOdate
                         }}
                       />
@@ -128,15 +129,15 @@ const Home: React.FC = () => {
                       <select
                         className="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                         onChange={(event) => {
-                          let data = event.target.value.split(" ")[0];
+                          let data = event.target.value;
                           setagentId(data);
                           setagent(data);
                         }}
                       >
                         {DropdownItems.agentIdList.map((items, index) => {
                           return (
-                            <option key={index} value={items}>
-                              {items}
+                            <option key={index} value={items.value}>
+                              {items.label}
                             </option>
                           );
                         })}
@@ -144,15 +145,15 @@ const Home: React.FC = () => {
                       <select
                         className="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                         onChange={(event) => {
-                          let data = event.target.value.split(" ")[0];
+                          let data = event.target.value;
                           setqueu(data);
                           setqueue(data);
                         }}
                       >
                         {DropdownItems.kuyruk.map((items, index) => {
                           return (
-                            <option key={index} value={items}>
-                              {items}
+                            <option key={index} value={items.value}>
+                              {items.label}
                             </option>
                           );
                         })}

@@ -1,23 +1,23 @@
 {
   "agentIdList": [
-    "Agent",
-    "112 Alper Yilmaz",
-    "113 Fahri Acar",
-    "114 Safak Turan",
-    "115 115",
-    "120 Serdar Ikikardesler",
-    "133 Tuncay Bilgin",
-    "433 433",
-    "444 Agent - Alper"
+    { "label": "Agent", "value": "Agent" },
+    { "label": "112 Alper Yilmaz", "value": "112" },
+    { "label": "113 Fahri Acar", "value": "113" },
+    { "label": "114 Safak Turan", "value": "114" },
+    { "label": "115 115", "value": "115" },
+    { "label": "120 Serdar Ikikardesler", "value": "120" },
+    { "label": "133 Tuncay Bilgin", "value": "133" },
+    { "label": "433 433", "value": "433" },
+    { "label": "444 Agent - Alper", "value": "444" }
   ],
   "kuyruk": [
-    "Kuyruk",
-    "8000 Operator",
-    "8001 Teknik",
-    "8002 Muhasebe",
-    "8011 Teknik Mesaidisi",
-    "8012 Satis Mesaidisi",
-    "8013 TEST",
-    "8100 Call center"
+    { "label": "Kuyruk", "value": "Kuyruk" },
+    { "label": "8000 Operator", "value": "8000" },
+    { "label": "8001 Teknik", "value": "8001" },
+    { "label": "8002 Muhasebe", "value": "8002" },
+    { "label": "8011 Teknik Mesaidisi", "value": "8011" },
+    { "label": "8012 Satis Mesaidisi", "value": "8012" },
+    { "label": "8013 TEST", "value": "8013" },
+    { "label": "8100 Call center", "value": "8100" }
   ]
 }
